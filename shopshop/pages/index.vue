@@ -43,48 +43,10 @@
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn color="blue darken-1" text @click="close">Cancel</v-btn>
+              <v-btn color="blue darken-1" text @click="save"> Save </v-btn>
             </v-card-actions>
           </v-card>
-        </v-dialog> &nbsp;
-
-
-        <v-dialog v-model="dialog" max-width="500px">
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn color="info" dark class="mb-2" v-bind="attrs" v-on="on"> คำสั่งซื้อ </v-btn>
-          </template>
-          <v-card>
-            <v-card-title>
-              <span class="text-h5">{{ formTitle }}</span>
-            </v-card-title>
-
-            <v-card-text>
-              <v-container>
-                <v-row>
-                  <v-col cols="12" sm="6" md="4">
-                    <v-text-field v-model="editedItem.nameproduct" label="ชื่อสินค้า" ></v-text-field>
-                  </v-col>
-                  <v-col cols="12" sm="6" md="4" >
-                    <v-text-field v-model="editedItem.description" label="รายละเอียด"></v-text-field>
-                  </v-col>
-                  <v-col cols="12" sm="6" md="4">
-                    <v-text-field v-model="editedItem.unit" label="หน่วย" ></v-text-field>
-                  </v-col>
-                  <v-col cols="12" sm="6" md="4">
-                    <v-text-field v-model="editedItem.price" label="ราคา" ></v-text-field>
-                  </v-col>
-                </v-row>
-              </v-container>
-            </v-card-text>
-
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn color="blue darken-1" text @click="close">Cancel</v-btn>
-              <v-btn color="blue darken-1" text @click="save">Save</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
-
-
+        </v-dialog> 
         <v-dialog v-model="dialogDelete" max-width="500px">
           <v-card>
             <v-card-title class="text-h5">Are you sure you want to delete this item?</v-card-title>
@@ -114,6 +76,7 @@
 <script>
 import Product from '../components/Product.vue'
   export default {
+    name: "IndexPage",
     data: () => ({
         dialog: false,
         dialogDelete: false,
@@ -136,21 +99,21 @@ import Product from '../components/Product.vue'
         editedItem: {
             name: "",
             description: 0,
-            phone: 0,
-            address: 0,
-            photo: 0,
+            phone: "",
+            address: "",
+            photo: [],
         },
         defaultItem: {
-            name: "",
+          name: "",
             description: 0,
-            phone: 0,
-            address: 0,
-            photo: 0,
+            phone: "",
+            address: "",
+            photo: [],
         },
     }),
     computed: {
         formTitle() {
-            return this.editedIndex === -1 ? "ร้านค้าใหม่" : "Edit Item";
+            return this.editedIndex === -1 ? "New Item" : "Edit Item";
         },
     },
     watch: {
@@ -169,10 +132,11 @@ import Product from '../components/Product.vue'
             this.shops = [
                 {
                     id: Date.now().toString(36),
-                    name: "Little JJ",
-                    description: 159,
-                    phone: 6,
-                    address: 24,
+                    name: "Little ",
+                    description: "159",
+                    phone: "",
+                    address: "",
+                    photo: [],
                 },
             ];
         },

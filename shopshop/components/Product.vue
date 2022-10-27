@@ -112,15 +112,17 @@ export default {
       editedIndex: -1,
       editedItem: {
           name: "",
-          description: 0,
+          description: "",
           price: 0,
           unit: 0,
+          photo: [],
       },
       defaultItem: {
           name: "",
-          description: 0,
+          description: "",
           price: 0,
           unit: 0,
+          photo: [],
       },
       dialogProduct: false,
     }
@@ -158,9 +160,10 @@ export default {
           this.products = [
               {
                   name: "Little JJ",
-                  description: 159,
-                  price: 6,
-                  unit: 24,
+                  description: "159",
+                  price: 0,
+                  unit: 0,
+                  photo: [],
               },
           ];
       },
