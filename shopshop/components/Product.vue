@@ -6,8 +6,7 @@
       transition="dialog-bottom-transition"
     >
       <template v-slot:activator="{ on, attrs }">
-        &nbsp;<v-btn color="primary" dark v-bind="attrs" v-on="on"> ดูสินค้า </v-btn>  
-        <!-- <v-btn color="primary" dark v-bind="attrs" v-on="on" > คำสั่งซื้อ </v-btn> -->
+        <v-btn color="primary " dark v-bind="attrs" v-on="on"> ดูสินค้า </v-btn>  
       </template>
       
       <v-card>
@@ -106,6 +105,7 @@ export default {
           { text: "รายละเอียด", value: "description" },
           { text: "ราคา", value: "price" },
           { text: "หน่วย", value: "unit" },
+          { text: "รูป", value: "photo" },
           { text: "Actions", value: "actions", sortable: false },
       ],
       products: [],

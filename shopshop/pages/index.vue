@@ -14,7 +14,7 @@
         <v-spacer></v-spacer>
         <v-dialog v-model="dialog" max-width="500px">
           <template v-slot:activator="{ on, attrs }">
-            <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on"> เพิ่มร้านค้าใหม่ </v-btn>
+            <v-btn color="info" dark class="mb-2" v-bind="attrs" v-on="on"> เพิ่มร้านค้าใหม่ </v-btn>
           </template>
           <v-card>
             <v-card-title>
@@ -43,14 +43,14 @@
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn color="blue darken-1" text @click="close">Cancel</v-btn>
-              <v-btn color="blue darken-1" text @click="save">Save</v-btn>
             </v-card-actions>
           </v-card>
         </v-dialog> &nbsp;
 
+
         <v-dialog v-model="dialog" max-width="500px">
           <template v-slot:activator="{ on, attrs }">
-            <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on"> คำสั่งซื้อ </v-btn>
+            <v-btn color="info" dark class="mb-2" v-bind="attrs" v-on="on"> คำสั่งซื้อ </v-btn>
           </template>
           <v-card>
             <v-card-title>
@@ -83,6 +83,7 @@
             </v-card-actions>
           </v-card>
         </v-dialog>
+
 
         <v-dialog v-model="dialogDelete" max-width="500px">
           <v-card>
@@ -127,6 +128,7 @@ import Product from '../components/Product.vue'
             { text: "รายละเอียด", value: "description" },
             { text: "เบอร์โทร", value: "phone" },
             { text: "ที่อยู่", value: "address" },
+            { text: "รูป", value: "photo" },
             { text: "Actions", value: "actions", sortable: false },
         ],
         shops: [],
@@ -136,17 +138,19 @@ import Product from '../components/Product.vue'
             description: 0,
             phone: 0,
             address: 0,
+            photo: 0,
         },
         defaultItem: {
             name: "",
             description: 0,
             phone: 0,
             address: 0,
+            photo: 0,
         },
     }),
     computed: {
         formTitle() {
-            return this.editedIndex === -1 ? "New Item" : "Edit Item";
+            return this.editedIndex === -1 ? "ร้านค้าใหม่" : "Edit Item";
         },
     },
     watch: {
@@ -213,5 +217,4 @@ import Product from '../components/Product.vue'
     },
     components: { Product }
 }
-
 </script>
